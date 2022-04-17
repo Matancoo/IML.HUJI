@@ -5,6 +5,7 @@ def mean_square_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     """
     Calculate MSE loss
 
+
     Parameters
     ----------
     y_true: ndarray of shape (n_samples, )
@@ -16,7 +17,10 @@ def mean_square_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     -------
     MSE of given predictions
     """
-    raise NotImplementedError()
+    # y_pred = y_pred.reshape((-1,1))
+    # y_true = y_true.reshape((-1,1))
+    residual = np.square(y_true-y_pred)
+    return np.mean(residual)
 
 
 def misclassification_error(y_true: np.ndarray, y_pred: np.ndarray, normalize: bool = True) -> float:
